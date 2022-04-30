@@ -3,5 +3,24 @@
 
 .wrapper {
   width: 100vw;
-  padding: 1em;
+  background-color: $bgColor;
+  position: relative;
+  
+  header {
+    width: 100%;
+    background-color: darken($bgColor, 80%);
+    color: lighten($bgColor, 5%);
+    h1 {
+      font-size: 1.55em;
+      padding: 0.8em 0;
+      text-align: center;
+      margin: 0;
+    }
+  }
+  
+  .main {
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+  }
 }
