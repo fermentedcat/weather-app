@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Form = () => {
+export const Form = ({ onSubmit }) => {
   const [userInput, setUserInput] = useState({
     longitude: '',
     latitude: ''
@@ -13,8 +13,9 @@ export const Form = () => {
       }})
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
+    onSubmit(userInput)
   }
 
   return (
