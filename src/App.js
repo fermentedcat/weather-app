@@ -2,10 +2,11 @@ import { useState } from 'react';
 import './App.css';
 import { fetchWeather } from './api/api';
 import { Form } from './components/Form/Form';
+import { WeatherList } from './components/WeatherList/WeatherList';
 
 function App() {
   const [error, setError] = useState({})
-  const [weatherData, setWeatherData] = useState({})
+  const [weatherData, setWeatherData] = useState()
 
   async function getWeatherData({longitude, latitude}) {
     try {
@@ -21,7 +22,7 @@ function App() {
     <div>
       <p>hallo</p>
       <Form onSubmit={getWeatherData}/>
-      {weatherData && <p>{weatherData.referenceTime}</p>}
+      {weatherData && <WeatherList weatherData={weatherData}/>}
       {error.message && <p>{error.message}</p>}
     </div>
   );
