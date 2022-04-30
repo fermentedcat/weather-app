@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { validateLon, validateLat } from '../../utils/validate'
+import { Button } from '../Button/Button'
+import { Input } from '../Input/Input'
+import styles from './Form.module.scss'
 
 export const Form = ({ onSubmit }) => {
   const [userInput, setUserInput] = useState({
@@ -48,29 +51,26 @@ export const Form = ({ onSubmit }) => {
   }
 
   return (
-    <div>
-      <form>
-        <label>Latitude
-          <input 
-            value={userInput.latitude}
-            name="latitude"
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>Longitude
-          <input 
-            value={userInput.longitude}
-            name="longitude"
-            onChange={handleInputChange}
-          />
-        </label>
-        <button
+      <form className={styles.wrapper}>
+        <Input 
+          title="Longitude"
+          name="longitude"
+          value={userInput.longitude}
+          placeholder="13.819552"
+          onChange={handleInputChange}
+        />
+        <Input 
+          title="Latitude"
+          name="latitude"
+          value={userInput.latitude}
+          placeholder="55.433993"
+          onChange={handleInputChange}
+        />
+        <Button 
+          title="Get weather" 
+          disabled={!isValidForm} 
           onClick={handleSubmit}
-          disabled={!isValidForm}
-        >
-          Get weather
-        </button>
+        />
       </form>
-    </div>
   )
 }

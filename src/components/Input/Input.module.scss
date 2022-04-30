@@ -1,0 +1,17 @@
+@import '../../global.scss';
+
+.label {
+  font-size: .8em;
+  margin-bottom: 0;
+  margin: $marginSmall;
+  margin-bottom: 0;
+}
+
+.input {
+  padding: 0.6em;
+  margin: $marginSmall;
+  font-size: 1em;
+  background-color: white;
+  border: none;
+  border-radius: $borderRadiusSmall;
+}

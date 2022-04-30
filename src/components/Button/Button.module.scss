@@ -1,0 +1,25 @@
+@import '../../global.scss';
+
+.button {
+  padding: .5em;
+  margin: $marginSmall;
+  background-color: $primary;
+  color: lighten($bgColor, 15%);
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  border-radius: $borderRadiusSmall;
+  transition: all .07s ease-in-out;
+  
+  &:disabled {
+    opacity: .5;
+  }
+  &:hover {
+    background-color: lighten($primary, 6%);
+    color: white;
+  }
+  
+  &:active {
+    background-color: darken($primary, 1%);
+  }
+}
