@@ -27,9 +27,12 @@ function App() {
 
   return (
     <div className={styles.wrapper}>
-      <Form onSubmit={getWeatherData}/>
-      {weatherData && <WeatherList weatherData={weatherData}/>}
-      {error.message && <p>{error.message}</p>}
+      <header><h1>Weather by numbers</h1></header>
+      <section className={styles.main}>
+        <Form onSubmit={getWeatherData}/>
+        {error.message && <p>{error.message}</p>}
+        {weatherData && <WeatherList weatherData={weatherData}/>}
+      </section>
     </div>
   );
 }
