@@ -36,6 +36,7 @@ export const WeatherList = ({ weatherData }) => {
             <WeatherListItem 
               key={index} 
               date={date} 
+              variant="main"
               params={time.parameters} 
               forecasts={day}
               isActive={date === activeDay}
