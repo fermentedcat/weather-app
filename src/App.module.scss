@@ -2,7 +2,7 @@
 
 
 .wrapper {
-  width: 100vw;
+  width: 100%;
   background-color: $bgColor;
   position: relative;
   
@@ -17,6 +17,7 @@
       margin: 0;
     }
   }
+  box-sizing: border-box;
   
   .main {
     width: 100%;

@@ -6,6 +6,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: lighten($bgColor, 8%);
+  box-shadow: inset 0 0 5px lighten($bgColor, 5%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken($bgColor, 15%); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken($bgColor, 19%); 
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
