@@ -4,7 +4,7 @@ import { WeatherListItem } from '../WeatherListItem/WeatherListItem'
 
 export const WeatherList = ({ weatherData }) => {
   const [days, setDays] = useState()
-  // const [activeDay, setActiveDay] = useState('')
+  const [activeDay, setActiveDay] = useState('')
 
   useEffect(() => {
     const daysObj = {}
@@ -19,15 +19,27 @@ export const WeatherList = ({ weatherData }) => {
     
   }, [weatherData])
 
+  function handleClickOnDate(date) {
+    if (activeDay === date) {
+      setActiveDay('')
+      return
+    }
+    setActiveDay(date)
+  }
+
   return (
     <div>
       {days && Object.values(days).map((day) => {
         return (day.map((time, index) => {
+          const date = getDate(time.validTime)
           return checkIsNoon(time.validTime) && (
             <WeatherListItem 
               key={index} 
-              date={time.validTime} 
+              date={date} 
               params={time.parameters} 
+              forecasts={day}
+              isActive={date === activeDay}
+              onClick={handleClickOnDate}
             />
           )
         }))

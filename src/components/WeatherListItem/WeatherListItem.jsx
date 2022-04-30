@@ -1,13 +1,19 @@
 import React from 'react'
-import { getDate } from '../../utils/date'
+import { getTime } from '../../utils/date'
+import { getTemp, getSymbol } from '../../utils/weather'
 
-export const WeatherListItem = ({ date, params, /*, isActive */ }) => {
-  const temperature = params.filter((param) => param.name === 't')[0].values[0]
-  const wsymb = params.filter((param) => param.name === 'Wsymb2')[0].values[0]
-  
+export const WeatherListItem = ({ date, params, forecasts, isActive, onClick }) => {
+  const temperature = getTemp(params)
+  const wsymb = getSymbol(params)
   return (
     <div>
-      <p>{getDate(date)} {temperature} symbol: {wsymb}</p>
+      <p>{date} {temperature} symbol: {wsymb}</p>
+      {isActive && (
+        forecasts.map((time) => {
+          return <p>{getTime(time.validTime)} {getTemp(time.parameters)} {getSymbol(time.parameters)}</p>
+        })
+      )}
+      <button onClick={() => onClick(date)}>{isActive ? 'Close' : 'Open'}</button>
     </div>
   )
 }
