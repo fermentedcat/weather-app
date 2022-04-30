@@ -11,3 +11,9 @@ export const getDate = (timeStamp) => {
   const date = timeStamp.substring(0, 10)
   return date
 }
+
+export const getTime = (timeStamp) => {
+  // returns date ex. '2022-04-30'
+  const time = timeStamp.substring(11, 16)
+  return time
+}
