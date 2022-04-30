@@ -20,7 +20,6 @@ function App() {
 
   return (
     <div>
-      <p>hallo</p>
       <Form onSubmit={getWeatherData}/>
       {weatherData && <WeatherList weatherData={weatherData}/>}
       {error.message && <p>{error.message}</p>}

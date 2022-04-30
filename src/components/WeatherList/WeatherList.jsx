@@ -31,15 +31,15 @@ export const WeatherList = ({ weatherData }) => {
     <div>
       {days && Object.values(days).map((day) => {
         return (day.map((time, index) => {
-          const date = getDate(time.validTime)
+          const isActive = getDate(time.validTime) === activeDay
           return checkIsNoon(time.validTime) && (
             <WeatherListItem 
               key={index} 
-              date={date} 
+              date={time.validTime} 
               variant="main"
               params={time.parameters} 
               forecasts={day}
-              isActive={date === activeDay}
+              isActive={isActive}
               onClick={handleClickOnDate}
             />
           )
