@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { checkIsNoon, getDate } from '../../utils/date'
+import { WeatherListItem } from '../WeatherListItem/WeatherListItem'
 
 export const WeatherList = ({ weatherData }) => {
   const [days, setDays] = useState()
@@ -22,15 +23,15 @@ export const WeatherList = ({ weatherData }) => {
     <div>
       {days && Object.values(days).map((day) => {
         return (day.map((time, index) => {
-          return checkIsNoon(time.validTime) && <p key={index}>{time.validTime}</p>
+          return checkIsNoon(time.validTime) && (
+            <WeatherListItem 
+              key={index} 
+              date={time.validTime} 
+              params={time.parameters} 
+            />
+          )
         }))
       })}
-      <p>
-        Man ser en list-vy där varje element i listan innehåller datum, temperatur och evt. en väder-symbol. Det är temperatur och väder-symbol för kl. 12 som visas (api't returnerar väderprognos för dygnets alla timmar).
-      </p>
-      <p>
-      Api´t returnerar en array med elements för varje timme för ca. 10 dagar framåt. Varje element innehåller temperatur och kod för väder-symbol (vädersymbol-fältet heter wsymb2).
-      </p>
     </div>
   )
 }
