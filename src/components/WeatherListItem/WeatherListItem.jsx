@@ -1,13 +1,12 @@
 import React, { useRef } from 'react'
-import { getDate, getTime } from '../../utils/date'
+import { getDate, getFormattedDate, getTime } from '../../utils/date'
 import { getTemp, getSymbolUnicode } from '../../utils/weather'
 import styles from './WeatherListItem.module.scss'
 
-export const WeatherListItem = ({ date, params, variant, forecasts, isActive, onClick }) => {
+export const WeatherListItem = ({ date, params, variant, hours, isActive, onClick }) => {
   const temperature = getTemp(params)
   const wsymb = getSymbolUnicode(params)
   const ref = useRef()
-  const isMain = variant === 'main'
 
   function handleClickOnItem() {
     ref.current.click()
@@ -16,14 +15,15 @@ export const WeatherListItem = ({ date, params, variant, forecasts, isActive, on
   return (
     <div className={`${styles.wrapper} ${styles[variant]}`} onClick={handleClickOnItem}>
       <div className={styles.content}>
-        <p className={styles.timeStamp}>{isMain ? getDate(date) : getTime(date)}</p>
+        <p className={styles.timeStamp}>{variant === 'main' ? getFormattedDate(date) : getTime(date)}</p>
         <div>
           <p className={styles.icon}>{wsymb}</p>
           <p>{temperature} C°</p>
         </div>
       </div>
       {isActive && (
-        forecasts.map((time, index) => {
+        // render all hourly forcasts if active date
+        hours.map((time, index) => {
           return (
             <WeatherListItem 
               key={index} 
