@@ -4,7 +4,7 @@ import styles from './Input.module.scss'
 export const Input = ({ title, name, value, placeholder, onChange }) => {
   return (
     <>
-      <label className={styles.label} for={name}>{title}:</label>
+      <label className={styles.label} htmlFor={name}>{title}:</label>
       <input 
         className={styles.input}
         value={value}

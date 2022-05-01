@@ -4,16 +4,18 @@ import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import styles from './Form.module.scss'
 
+const defaultUserInput = {
+  longitude: '',
+  latitude: ''
+}
+
 export const Form = ({ onSubmit }) => {
-  const [userInput, setUserInput] = useState({
-    longitude: '',
-    latitude: ''
-  })
+  const [userInput, setUserInput] = useState(defaultUserInput)
+  const [isValidForm, setIsValidForm] = useState(false)
   const [isValidInput, setIsValidInput] = useState({
     longitude: false,
     latitude: false
   })
-  const [isValidForm, setIsValidForm] = useState(false)
 
   useEffect(() => {
     // validate input on change
@@ -47,7 +49,9 @@ export const Form = ({ onSubmit }) => {
 
   function handleSubmit(e) {
     e.preventDefault()
+    if (!isValidForm) return
     onSubmit(userInput)
+    setUserInput(defaultUserInput)
   }
 
   return (
