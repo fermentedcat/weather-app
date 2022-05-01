@@ -4,27 +4,36 @@ const AUTO_HIDE_DURATION = 4000
 
 export const SnackBarContext = createContext()
 
-export function SnackBarProvider({ children }) {
-  const [messages, setMessages] = useState([])
+export const SnackBarProvider = ({ children }) => {
+  const [alerts, setAlerts] = useState([])
 
   useEffect(() => {
-    if (messages.length > 0) {
-      // dismiss messages one by one if any, oldest to newest
+    if (alerts.length > 0) {
+      // dismiss alerts one by one if any, oldest to newest
       const timer = setTimeout(() => {
-        const tempMessages = [...messages]
-        tempMessages.pop()
-        setMessages(tempMessages)
+        const tempAlerts = [...alerts]
+        tempAlerts.pop()
+        setAlerts(tempAlerts)
       }, AUTO_HIDE_DURATION)
       return () => clearTimeout(timer)
     }
-  }, [messages])
+  }, [alerts])
 
-  // memoize add message function
-  const addMessage = useCallback((content) => {
-    setMessages((messages) => [content, ...messages])
+  const addAlert = useCallback((newAlert) => {
+    // save new item first in array
+    setAlerts((alerts) => [newAlert, ...alerts])
+  }, [])
+  
+  const dismissAlert = useCallback((index) => {
+    setAlerts((alerts) => {
+      // remove dismissed index from alert array
+      const tempAlerts = [...alerts]
+      tempAlerts.splice(index, 1)
+      return tempAlerts
+    })
   }, [])
 
-  const value = { messages, addMessage }
+  const value = { alerts, addAlert, dismissAlert }
     
   return (
     <SnackBarContext.Provider value={value}>
