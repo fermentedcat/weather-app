@@ -32,13 +32,21 @@
         font-weight: bold;
       }
       
+      .weather {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 3.5em;
+      }
+      
       .timeStamp {
         font-size: 1.1em;
+        padding-left: .25em;
       }
       
       .icon {
-        font-size: 2em;
-        text-align: center;
+        font-size: 2.5em;
       }
     }
     
@@ -49,12 +57,15 @@
       p {
         font-weight: normal;
       }
-
+      
       .content {
         padding: .2em 1em;
         
         .timeStamp {
           font-size: 1em;
+        }
+        .icon {
+          font-size: 2em;
         }
       }
     }

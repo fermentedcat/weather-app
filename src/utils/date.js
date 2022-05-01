@@ -1,9 +1,17 @@
 export const getOffsetDate = (timeStamp) => {
-  const date = new Date(timeStamp)
+  const date = timeStamp ? new Date(timeStamp) : new Date()
   // add +/- timezone offset
   let offset = date.getTimezoneOffset() / 60
   date.setHours(date.getHours() + offset)
   return date
+}
+
+export const checkIsToday = (timeStamp) => {
+  const today = new Date()
+  const todayISO = today.toISOString()
+
+  return getDate(timeStamp) === getDate(todayISO)
+
 }
 
 export const checkIsNoon = (timeStamp) => {
@@ -12,8 +20,13 @@ export const checkIsNoon = (timeStamp) => {
   return date.getHours() === 12
 }
 
+export const checkIsDayTime = (timeStamp) => {
+  const date = getOffsetDate(timeStamp)
+  return date.getHours() > 5 && date.getHours() < 18
+}
+
 export const getTime = (timeStamp) => {
-  // returns date ex. '2022-04-30'
+  // returns time ex. '16:00'
   const time = timeStamp.substring(11, 16)
   return time
 }

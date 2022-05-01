@@ -1,11 +1,14 @@
 import React, { useRef } from 'react'
-import { getDate, getFormattedDate, getTime } from '../../utils/date'
-import { getTemp, getSymbolUnicode } from '../../utils/weather'
+import * as weatherIcons from 'react-icons/wi'
+import { checkIsToday, getDate, getFormattedDate, getTime } from '../../utils/date'
+import { getReactSymbol, getTemp } from '../../utils/weather'
 import styles from './WeatherListItem.module.scss'
 
 export const WeatherListItem = ({ date, params, variant, hours, isActive, onClick }) => {
   const temperature = getTemp(params)
-  const wsymb = getSymbolUnicode(params)
+  const icon = getReactSymbol(params, date)
+  const isToday = checkIsToday(date)
+  const WeatherIcon = weatherIcons[icon]
   const ref = useRef()
 
   function handleClickOnItem() {
@@ -15,9 +18,12 @@ export const WeatherListItem = ({ date, params, variant, hours, isActive, onClic
   return (
     <div className={`${styles.wrapper} ${styles[variant]}`} onClick={handleClickOnItem}>
       <div className={styles.content}>
-        <p className={styles.timeStamp}>{variant === 'main' ? getFormattedDate(date) : getTime(date)}</p>
-        <div>
-          <p className={styles.icon}>{wsymb}</p>
+        <p className={styles.timeStamp}>
+          {variant === 'main' ? getFormattedDate(date) : getTime(date)}
+          {variant === 'main' && isToday && ' (Today)'}
+        </p>
+        <div className={styles.weather}>
+          {WeatherIcon && <WeatherIcon className={styles.icon}/>}
           <p>{temperature} C°</p>
         </div>
       </div>
