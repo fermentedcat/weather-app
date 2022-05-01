@@ -17,24 +17,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 -
 
-# Some notes on framework and architectural choices
+# Framework and architectural choices
 
-## Frameworks
-
-### View management with React
+## View management with React
 
 -
 
-### State management
+## State management
 
 -
 
-### Styling with SASS
+## Styling with SASS
 
 Since node-sass is deprecated, I am using Dart Sass. I have chosen SASS over styled-components because I'm more familiar with it
 and I don't see a need for additional programmatical styling.
 
-### Animations
+## Animations
 
 -
 
@@ -42,9 +40,9 @@ and I don't see a need for additional programmatical styling.
 
 Code is organized into the following folders:
 
-- api - data fetching from SMHI weather API
-- components - reusable components
-- utils - reusable functions
+- /api - data fetching from SMHI weather API
+- /components - reusable components
+- /utils - contexts, hooks and reusable functions, such as `getFormattedDate`
 
 ---
 
@@ -63,6 +61,7 @@ API url (example): `https://opendata-download-metfcst.smhi.se/api/category/pmp3g
 - Wsymb2 - value: symbol ref, 1 - 27
 
 ---
-## Code formatter
 
-Nope
+## Cred
+
+<a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by iconixar - Flaticon</a>
