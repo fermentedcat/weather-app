@@ -71,7 +71,8 @@ export const Form = ({ onSubmit }) => {
           onChange={handleInputChange}
         />
         <Button 
-          title="Get weather" 
+          title="Get weather"
+          size="large"
           disabled={!isValidForm} 
           onClick={handleSubmit}
         />
