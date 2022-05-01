@@ -24,4 +24,10 @@
     padding: 1em;
     box-sizing: border-box;
   }
+
+  .snackbarWrapper {
+    position: fixed;
+    bottom: 0;
+    width: min-content;
+  }
 }

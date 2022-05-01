@@ -1,0 +1,39 @@
+@import '../../global.scss';
+
+.snack {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: rgb(202, 225, 169);
+  border-radius: $borderRadiusSmall;
+  margin: 1em;
+  min-width: 8em;
+  width: 100%;
+  position: relative;
+  .message {
+    margin: 0;
+  }
+
+  button {
+    position: absolute;
+    top: 0.2em;
+    right: 0.2em;
+  }
+  
+  &.success {
+    background-color: $success;
+  }
+  
+  &.info {
+    background-color: $info;
+  }
+  
+  &.warning {
+    background-color: $warning;
+  }
+  
+  &.danger {
+    background-color: $danger;
+  }
+  
+}
