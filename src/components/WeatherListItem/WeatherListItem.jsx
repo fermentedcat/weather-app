@@ -12,7 +12,7 @@ export const WeatherListItem = ({ date, params, variant, hours, isActive, onClic
   const ref = useRef()
 
   function handleClickOnItem() {
-    ref.current.click()
+    ref.current && ref.current.click()
   }
   
   return (
