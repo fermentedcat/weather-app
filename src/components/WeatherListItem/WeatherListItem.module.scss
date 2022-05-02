@@ -3,8 +3,8 @@
 .wrapper {
   background-color: lighten($bgColor, 5%);  
   transition: background-color .09s ease-in-out;
-
   cursor: pointer;
+
   &:hover {
     background-color: lighten($bgColor, 7%);
   }

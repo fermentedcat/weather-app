@@ -13,7 +13,6 @@ export const checkIsNoon = (timeStamp) => {
 }
 
 export const checkIsPM = (timeStamp) => {
-  // add +/- timezone offset and check if 12 o'clock
   const date = getOffsetDate(timeStamp)
   return date.getHours() > 12
 }

@@ -1,7 +1,3 @@
-$success: rgb(138, 177, 147);
-$info: rgb(169, 211, 225);
-$warning: rgb(255, 212, 94);
-$danger: rgb(243, 131, 97);
 
 $black: rgb(46, 49, 54);
 $white: rgb(252, 253, 251);
@@ -9,13 +5,18 @@ $white: rgb(252, 253, 251);
 $primary: rgb(89, 128, 148);
 $bgColor: rgb(226, 230, 219);
 
-$headerBg: rgb(82, 77, 73);
+$success: rgb(138, 177, 147);
+$info: rgb(169, 211, 225);
+$warning: rgb(255, 212, 94);
+$danger: rgb(243, 131, 97);
+
 $headerBg: rgb(69, 73, 83);
 $headerColor: lighten($bgColor, 10%);
 
 $tabFocusBorderColor: rgb(128, 164, 136);
 $marginSmall: .3rem;
 $borderRadiusSmall: .3rem;
+$borderRadiusMedium: .7rem;
 
 $boxShadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.31);
 $transitionAll: all .5s ease-in-out;

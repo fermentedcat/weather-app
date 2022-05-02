@@ -27,7 +27,7 @@ export const Info = () => {
             ref={ref}
             onClick={handleToggleInfo}  
           >
-              {showInfo ? 'Hide' : 'Show'} info about valid coordinates
+              {showInfo ? 'Hide' : 'Show'} info about corner points for retrievable coordinates
           </button>
           <FiInfo />
         </div>

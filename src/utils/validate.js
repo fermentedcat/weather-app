@@ -1,6 +1,6 @@
 export const validateLon = (value) => {
- const regex = new RegExp('^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$')
- return regex.test(value)
+  const regex = new RegExp('^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$')
+  return regex.test(value)
 }
 
 export const validateLat = (value) => {

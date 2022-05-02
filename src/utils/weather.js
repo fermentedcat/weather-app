@@ -19,7 +19,7 @@ export const getReactSymbol = (params, timeStamp) => {
   const isDaytime = checkIsDayTime(timeStamp)
   const wsymb2 = getSymbol(params)
   const variant = isDaytime ? 'day' : 'night'
-  return weatherSymbols[wsymb2]?.reactIcon[variant] || ''
+  return weatherSymbols[wsymb2]?.reactIcon[variant]
 }
 
 const weatherSymbols = {

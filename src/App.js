@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { fetchWeather } from './api/api';
 import useSnackBars from './utils/useSnackBars';
@@ -6,27 +6,19 @@ import useSnackBars from './utils/useSnackBars';
 import { Form } from './components/Form/Form';
 import { WeatherList } from './components/WeatherList/WeatherList';
 import { SnackBar } from './components/SnackBar/SnackBar';
-import styles from './App.module.scss';
 import { Info } from './components/Info/Info';
+import styles from './App.module.scss';
 
 function App() {
   const [weatherData, setWeatherData] = useState()
   const { alerts, addAlert } = useSnackBars()
-
-  // TODO: for dev only, remove later
-  // useEffect(() => {
-  //   if (!weatherData) {
-  //     getWeatherData({ longitude: '16', latitude: '55' })
-  //   }
-  // }, [weatherData])
   
   async function getWeatherData({longitude, latitude}) {
     try {
       const data = await fetchWeather(longitude, latitude)
       setWeatherData(data)
-      //TODO remove later
       addAlert({
-        message: `Successfully fetched forecast for lon: ${longitude} and lat: ${latitude}`,
+        message: `Fetched weather forecast of ${longitude}, ${latitude}`,
         severity: 'success',
       })
     } catch (error) {

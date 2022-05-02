@@ -39,9 +39,9 @@ export const WeatherList = ({ weatherData }) => {
             <WeatherListItem 
               key={index} 
               date={time.validTime} 
-              variant="main"
               params={time.parameters} 
               hours={day}
+              variant="main"
               isActive={isActive}
               onClick={handleClickOnDate}
             />
