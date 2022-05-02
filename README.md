@@ -12,10 +12,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - `npm run start` - Starts in development mode
 - `npm run build` - Creates a build version
+- `npm run deploy` - Builds and deploys the project
 
 ## Deployment
 
-- not yet
+[Weather By Numbers](https://fermentedcat.github.io/weather-app/)
+
+The app is deployed on GitHub Pages using `gh-pages`
 
 # Framework and architectural choices
 
@@ -27,14 +30,10 @@ I have chosen React for this project as it's quick and easy to use and suits the
 
 Alert snackbars are managed through `SnackBarContext`, via `useSnackbars` hook for easier access.
 
-
 ## Styling with Sass
 
-Since node-sass is deprecated, I am using Dart Sass. I have chosen Sass modules over styled-components because I'm more familiar with it and I don't see a need for additional programmatical styling.
+I'm using Dart Sass since node-sass is deprecated. I've chosen Sass modules over styled-components because I'm more familiar with it and I don't see a need for additional programmatical styling.
 
-## Animations
-
-- maybe in the future
 
 ## Code organisation
 
@@ -56,7 +55,7 @@ API url (example): `https://opendata-download-metfcst.smhi.se/api/category/pmp3g
 - NE	37.848053, 70.740996
 - NW	-8.541278, 70.655722
 
-### SMHI weather API params
+### SMHI weather API params in use
 
 - t - value: temperature in celcius
 - validTime - date and hour of the forecast
@@ -72,14 +71,11 @@ API url (example): `https://opendata-download-metfcst.smhi.se/api/category/pmp3g
 
 ## Backlog / wishlist
 
-- show current date on the side if it has no 12 o'clock forecast
 - animate reveal of forcast cards
 - fetch location name of searched coordinates
 - save searches in localstorage
 - show previous searches
 - click prevous search to fetch again
-- hide form after search
-- info symbol inside input field to show SMHI API searchable coordinates
 
 ## Cred
 
