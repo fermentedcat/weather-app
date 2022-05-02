@@ -56,8 +56,9 @@
   .infoCard {
     background-color: $headerBg;
     color: $headerColor;
-    border-radius: $borderRadiusSmall;
+    border-radius: $borderRadiusMedium;
     border-top-right-radius: 0;
+    @include drop-shadow(medium);
     cursor: pointer;
     
     caption {
