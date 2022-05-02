@@ -13,11 +13,11 @@ function App() {
   const { alerts, addAlert } = useSnackBars()
 
   // TODO: for dev only, remove later
-  useEffect(() => {
-    if (!weatherData) {
-      getWeatherData({ longitude: '16', latitude: '55' })
-    }
-  }, [weatherData])
+  // useEffect(() => {
+  //   if (!weatherData) {
+  //     getWeatherData({ longitude: '16', latitude: '55' })
+  //   }
+  // }, [weatherData])
   
   async function getWeatherData({longitude, latitude}) {
     try {
@@ -25,7 +25,7 @@ function App() {
       setWeatherData(data)
       //TODO remove later
       addAlert({
-        message: longitude,
+        message: `Successfully fetched forecast for lon: ${longitude} and lat: ${latitude}`,
         severity: 'success',
       })
     } catch (error) {
@@ -38,13 +38,17 @@ function App() {
 
   return (
     <div className={styles.wrapper}>
-      <header><h1>Weather by numbers</h1></header>
+      <header>
+        <img src="./logo512.png" alt="Cloud and sun illustration"/>
+        <h1>Weather by numbers</h1>
+      </header>
       <main className={styles.main}>
         <Form onSubmit={getWeatherData}/>
         {weatherData && <WeatherList weatherData={weatherData}/>}
       </main>
 
       <div className={styles.snackbarWrapper}>
+        <div className={styles.snackbars}>
         {alerts.map((alert, index) => {
           return (
             <SnackBar 
@@ -55,6 +59,7 @@ function App() {
             />
           )
         })}
+        </div>
       </div>
     </div>
   );

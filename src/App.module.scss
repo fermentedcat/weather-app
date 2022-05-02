@@ -1,35 +1,84 @@
 @import './global.scss';
 
+$headerHeight: 7em;
 
 .wrapper {
   width: 100%;
+  min-height: 100vh;
   background-color: $bgColor;
   position: relative;
   
   header {
     width: 100%;
+    height: $headerHeight;
+    display: flex;
+    align-items: center;
     background-color: $headerBg;
     color: $headerColor;
     @include drop-shadow(medium);
+    position: fixed;
+    padding-left: 1.4em;
+    z-index: 1;
+    transition: $transitionAll;
+    
+    img {
+      height: 3.4em;
+      transition: $transitionAll;
+    }
     
     h1 {
-      font-size: 1.55em;
-      padding: 0.8em 0;
-      text-align: center;
       margin: 0;
+      margin-left: .5em;
+      font-size: 1.8em;
+      max-width: 6em;
+      transition: $transitionAll;
+      font-family: 'Raleway', 'Roboto', 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      line-height: 1.05;
+
     }
   }
   box-sizing: border-box;
   
   .main {
     width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    min-height: 100%;
     padding: 1em;
+    padding-top: calc($headerHeight + 1em);
     box-sizing: border-box;
+    transition: $transitionAll;
   }
 
   .snackbarWrapper {
+    width: 100%;
     position: fixed;
     bottom: 0;
-    width: min-content;
+    .snackbars {
+      margin: 0 auto;
+      width: max-content;
+      max-width: min(22em, 100vw);
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  $headerHeight: 5em;
+  .wrapper {
+    header {
+      padding-left: 1.3em;
+      height: $headerHeight;
+      img {
+        height: 2.2em;
+      }
+      h1 {
+        font-size: 1.25em;
+      }
+    }
+
+    .main {
+      padding-top: calc($headerHeight + 1em);
+    }
   }
 }
