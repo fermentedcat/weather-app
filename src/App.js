@@ -7,6 +7,7 @@ import { Form } from './components/Form/Form';
 import { WeatherList } from './components/WeatherList/WeatherList';
 import { SnackBar } from './components/SnackBar/SnackBar';
 import styles from './App.module.scss';
+import { Info } from './components/Info/Info';
 
 function App() {
   const [weatherData, setWeatherData] = useState()
@@ -43,6 +44,7 @@ function App() {
         <h1>Weather by numbers</h1>
       </header>
       <main className={styles.main}>
+        <Info />
         <Form onSubmit={getWeatherData}/>
         {weatherData && <WeatherList weatherData={weatherData}/>}
       </main>

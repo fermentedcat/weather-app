@@ -1,0 +1,89 @@
+@import '../../global.scss';
+
+.infoIcon {
+  position: absolute;
+  right: .8em;
+  background-color: transparent;
+  padding: 0.2em 0.3em .3em .3em;
+  margin: 0;
+  display: flex;
+  width: min-content;
+  height: min-content;
+  border-radius: 100%;
+  
+  &:focus-within svg {
+    outline: 5px solid $tabFocusBorderColor;
+    outline-offset: 3px;
+  }
+  svg {
+    height: 1.2em;
+    width: 1.2em;
+    align-self: baseline;
+    pointer-events: none;
+    border-radius: 100%;
+  }
+}
+
+.infoCardWrapper {
+  padding-right: 1em;
+  position: absolute;
+  margin-top: 0.75em;
+  right: 2em;
+  opacity: 1;
+  z-index: 1;
+  &::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    background-color: $headerBg;
+    -webkit-clip-path: polygon(0 0, 30% 3%, 0 100%);
+    clip-path: polygon(0 0, 30% 3%, 0 100%);
+    position: absolute;
+    right: 0.2px;
+    top: 0;
+  }
+  .infoCard {
+    background-color: $headerBg;
+    color: $headerColor;
+    border-radius: $borderRadiusSmall;
+    border-top-right-radius: 0;
+  
+    caption {
+      text-align: left;
+      margin: 14px 17px;
+      margin-bottom: 0;
+      width: max-content;
+      border-bottom: 1px solid $headerColor;
+    }
+  
+    thead, th {
+      font-size: 1.1em;
+    }
+  
+    th {
+      text-align: left;
+    }
+  
+    th, td {
+      padding: 14px 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .infoCardWrapper {
+    font-size: 0.8em;
+    margin-top: 1em;
+    right: 2.3em;
+    .infoCard {
+
+      caption {
+        margin-left: 11px;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+    }
+  }
+}
