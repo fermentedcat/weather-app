@@ -1,5 +1,7 @@
 @import './global.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Raleway:ital,wght@0,400;0,600;0,800;0,900;1,800;1,900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 html {
   margin: 0; 
   padding: 0; 
@@ -19,19 +21,17 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: darken($bgColor, 15%); 
+  background: lighten($headerBg, 10%); 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: darken($bgColor, 19%); 
+  background: lighten($headerBg, 20%); 
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Paduk', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
