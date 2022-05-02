@@ -6,14 +6,6 @@ export const getOffsetDate = (timeStamp) => {
   return date
 }
 
-export const checkIsToday = (timeStamp) => {
-  const today = new Date()
-  const todayISO = today.toISOString()
-
-  return getDate(timeStamp) === getDate(todayISO)
-
-}
-
 export const checkIsNoon = (timeStamp) => {
   // add +/- timezone offset and check if 12 o'clock
   const date = getOffsetDate(timeStamp)
