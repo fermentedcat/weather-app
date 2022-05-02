@@ -1,16 +1,16 @@
 import React, { useRef } from 'react'
 import * as weatherIcons from 'react-icons/wi'
 import { getDate, getFormattedDate, getTime } from '../../utils/date'
-import { getReactSymbol, getTemp } from '../../utils/weather'
+import { getReactSymbol, getUnicodeSymbol, getTemp } from '../../utils/weather'
 import styles from './WeatherListItem.module.scss'
 
 export const WeatherListItem = ({ date, params, variant, hours, isActive, onClick }) => {
-  const temperature = getTemp(params)
-  const icon = getReactSymbol(params, date)
-
-  const WeatherIcon = weatherIcons[icon]
   const ref = useRef()
-
+  const temperature = getTemp(params)
+  const unicode = getUnicodeSymbol(params)
+  const icon = getReactSymbol(params, date)
+  const WeatherIcon = weatherIcons[icon]
+  
   function handleClickOnItem() {
     ref.current && ref.current.click()
   }
@@ -22,7 +22,10 @@ export const WeatherListItem = ({ date, params, variant, hours, isActive, onClic
           {variant === 'main' ? getFormattedDate(date) : getTime(date)}
         </p>
         <div className={styles.weather}>
-          {WeatherIcon && <WeatherIcon className={styles.icon}/>}
+          {WeatherIcon 
+            ? <WeatherIcon className={styles.icon}/> 
+            : <p className={styles.icon}>{unicode}</p>
+          }
           <p>{temperature} C°</p>
         </div>
       </div>
