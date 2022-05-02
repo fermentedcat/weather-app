@@ -1,24 +1,29 @@
 @import '../../global.scss';
 
-.label {
-  font-size: .8em;
-  margin-bottom: 0;
-  margin: $marginSmall;
-  margin-bottom: 0;
-}
-
-.input {
-  padding: 0.6em;
-  margin: $marginSmall;
-  font-size: 1em;
-  background-color: $white;
-  border: 1px solid darken($bgColor, 10%);
-  border-radius: $borderRadiusSmall;
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .label {
+    font-size: .8em;
+    margin-bottom: 0;
+    margin: $marginSmall;
+    margin-bottom: 0;
+  }
   
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover, 
-  &:-webkit-autofill:focus, 
-  &:-webkit-autofill:active  {
-    box-shadow: 0 0 0 1000px $white inset;
+  .input {
+    padding: 0.6em;
+    margin: $marginSmall;
+    font-size: 1em;
+    background-color: $white;
+    border: 1px solid darken($bgColor, 10%);
+    border-radius: $borderRadiusSmall;
+    
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active  {
+      box-shadow: 0 0 0 1000px $white inset;
+    }
   }
 }

@@ -6,25 +6,37 @@
   border: none;
   border-radius: $borderRadiusSmall;
   transition: all .07s ease-in-out;
+  cursor: pointer;
   
   &:disabled {
     opacity: .5;
+    box-shadow: none;
+    cursor: default;
   }
   
   &.primary {
-    @include drop-shadow(medium);
     background-color: $primary;
     color: lighten($bgColor, 15%);
-    &:hover {
-      background-color: lighten($primary, 6%);
-      color: white;
+    &:not(:disabled) {
+      @include drop-shadow(medium);
+      &:hover {
+        background-color: lighten($primary, 6%);
+        color: white;
+      }
+      &:active {
+        background-color: darken($primary, 1%);
+        @include drop-shadow(small);
+      }
     }
-    &:active {
-      background-color: darken($primary, 1%);
+    
+    &:disabled {
+      @include drop-shadow(small);
     }
   }
   
   &.large {
+    min-width: max-content;
+    height: fit-content;
     font-weight: bold;
     font-size: 1.3em;
   }

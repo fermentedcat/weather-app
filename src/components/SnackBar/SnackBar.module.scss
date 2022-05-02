@@ -4,16 +4,17 @@
   display: flex;
   justify-content: space-between;
   padding: 1em;
+  padding-right: 2em;
   background-color: rgb(202, 225, 169);
   border-radius: $borderRadiusSmall;
   margin: 1em;
   min-width: 8em;
-  width: 100%;
   position: relative;
 
   @include box-shadow(medium);
   .message {
     margin: 0;
+    font-size: .9em;
   }
 
   button {
