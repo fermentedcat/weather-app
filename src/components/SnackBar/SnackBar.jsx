@@ -4,10 +4,10 @@ import { Button } from '../Button/Button'
 import styles from './SnackBar.module.scss'
 
 export const SnackBar = ({ message, severity = "info", index }) => {
-  const { dismissAlert } = useSnackBars()
+  const { removeAlert } = useSnackBars()
 
   function handleDismissSnack() {
-    dismissAlert(index)
+    removeAlert(index)
   }
 
   return (

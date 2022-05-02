@@ -23,8 +23,8 @@ export const SnackBarProvider = ({ children }) => {
     // save new item first in array
     setAlerts((alerts) => [newAlert, ...alerts])
   }, [])
-  
-  const dismissAlert = useCallback((index) => {
+
+  const removeAlert = useCallback((index) => {
     setAlerts((alerts) => {
       // remove dismissed index from alert array
       const tempAlerts = [...alerts]
@@ -33,8 +33,8 @@ export const SnackBarProvider = ({ children }) => {
     })
   }, [])
 
-  const value = { alerts, addAlert, dismissAlert }
-    
+  const value = { alerts, addAlert, removeAlert }
+
   return (
     <SnackBarContext.Provider value={value}>
       {children}
