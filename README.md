@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployment
 
-[Weather By Numbers](https://fermentedcat.github.io/weather-app/)
+[Weather By Numbers](https://fermentedcat.github.io/weather-by-numbers/)
 
 The app is deployed on GitHub Pages using `gh-pages`
 
