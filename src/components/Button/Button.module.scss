@@ -12,6 +12,7 @@
   }
   
   &.primary {
+    @include drop-shadow(medium);
     background-color: $primary;
     color: lighten($bgColor, 15%);
     &:hover {

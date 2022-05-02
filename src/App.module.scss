@@ -8,8 +8,10 @@
   
   header {
     width: 100%;
-    background-color: darken($bgColor, 80%);
-    color: lighten($bgColor, 5%);
+    background-color: $headerBg;
+    color: $headerColor;
+    @include drop-shadow(medium);
+    
     h1 {
       font-size: 1.55em;
       padding: 0.8em 0;

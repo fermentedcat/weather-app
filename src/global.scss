@@ -3,9 +3,37 @@ $info: rgb(169, 211, 225);
 $warning: rgb(255, 210, 85);
 $danger: rgb(241, 113, 74);
 
+$black: rgb(46, 49, 54);
+$white: rgb(252, 253, 251);
+
 $primary: rgb(105, 135, 156);
 $bgColor: rgb(226, 230, 219);
+
+$headerBg: rgb(76, 62, 53);
+$headerColor: $bgColor;
 
 $tabFocusBorderColor: rgb(164, 164, 255);
 $marginSmall: .3rem;
 $borderRadiusSmall: .3rem;
+
+$boxShadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.31);
+
+@mixin box-shadow($elevation) {
+  @if $elevation == small {
+    box-shadow: 1px 2px 2px hsl(0deg 0% 50% / 0.333)
+  } @else if $elevation == medium {
+    box-shadow: 0px 4px 8.5px rgba(0, 0, 0, 0.364)
+  } @else {
+    box-shadow: 0px 4px 8.5px rgba(0, 0, 0, 0.364)
+  }
+}
+
+@mixin drop-shadow($elevation) {
+  @if $elevation == small {
+    filter: drop-shadow(1px 2px 2px hsl(0deg 0% 50% / 0.333))
+  } @else if $elevation == medium {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.31))
+  } @else {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.31))
+  }
+}

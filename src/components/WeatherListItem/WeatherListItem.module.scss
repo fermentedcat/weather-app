@@ -16,6 +16,8 @@
     border-radius: $borderRadiusSmall;
     margin: 1em $marginSmall;
     border: 1px solid lighten($bgColor, 20%);
+    @include drop-shadow(small);
+
     &:focus-within {
       outline: 5px solid $tabFocusBorderColor;
     }
