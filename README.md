@@ -65,10 +65,6 @@ API url (example): `https://opendata-download-metfcst.smhi.se/api/category/pmp3g
 
 # Todo
 
-## Bugs
-
-- can't reach weather cards through keyboard navigation in Safari
-
 ## Backlog / wishlist
 
 - animate reveal of forcast cards
