@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { checkIsNoon, getDate } from '../../utils/date'
+import { checkIsNoon, checkIsPM, getDate } from '../../utils/date'
 import { WeatherListItem } from '../WeatherListItem/WeatherListItem'
 
 export const WeatherList = ({ weatherData }) => {
@@ -30,9 +30,12 @@ export const WeatherList = ({ weatherData }) => {
   return (
     <div>
       {days && Object.values(days).map((day) => {
+        const firstItemIsPM = checkIsPM(day[0].validTime)
         return (day.map((time, index) => {
           const isActive = getDate(time.validTime) === activeDay
-          return checkIsNoon(time.validTime) && (
+          // display only noon reports, or first hour of first day if without noon (today)
+          const shouldShow = checkIsNoon(time.validTime) || (firstItemIsPM && index === 0)
+          return shouldShow && (
             <WeatherListItem 
               key={index} 
               date={time.validTime} 
