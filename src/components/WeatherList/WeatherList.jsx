@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { checkIsNoon, checkIsPM, getDate } from '../../utils/date'
 import { WeatherListItem } from '../WeatherListItem/WeatherListItem'
+import _ from 'lodash'
 
 export const WeatherList = ({ weatherData }) => {
-  const [days, setDays] = useState()
   const [activeDay, setActiveDay] = useState('')
-
-  useEffect(() => {
-    const daysObj = {}
-    // group time objects by date
-    weatherData.timeSeries.forEach((time) => {
-      const date = getDate(time.validTime)
-      // add date array if nonexistent
-      daysObj[date] = daysObj[date] || []
-      daysObj[date].push(time)
-    })
-    setDays(daysObj)
-    
-  }, [weatherData])
+  const days = _.groupBy(weatherData.timeSeries, (time) => getDate(time.validTime))
 
   function handleClickOnDate(date) {
     if (activeDay === date) {
@@ -28,7 +16,7 @@ export const WeatherList = ({ weatherData }) => {
   }
 
   return (
-    <div>
+    <ul>
       {days && Object.values(days).map((day) => {
         const firstItemIsPM = checkIsPM(day[0].validTime)
         return (day.map((time, index) => {
@@ -48,6 +36,6 @@ export const WeatherList = ({ weatherData }) => {
           )
         }))
       })}
-    </div>
+    </ul>
   )
 }

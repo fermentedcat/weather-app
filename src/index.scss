@@ -37,6 +37,11 @@ code {
   background: lighten($headerBg, 20%); 
 }
 
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
 
 /* Read more: https://kittygiraudel.com/snippets/sr-only-class/ */
 .sr-only {
