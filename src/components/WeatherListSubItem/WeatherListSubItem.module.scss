@@ -1,0 +1,7 @@
+@import '../../global.scss';
+
+.wrapper {
+  background-color: lighten($bgColor, 3%);
+  border-top: 1px solid lighten($bgColor, 20%);
+  padding: .4em 1em;
+}

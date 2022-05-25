@@ -1,11 +1,11 @@
 import { checkIsDayTime } from "./date"
 
 export const getTemp = (params) => {
-  return params.filter((param) => param.name === 't')[0].values[0]
+  return params.find((param) => param.name === 't').values[0]
 }
 
 const getSymbol = (params) => {
-  const wsymb2 = params.filter((param) => param.name === 'Wsymb2')[0].values[0]
+  const wsymb2 = params.find((param) => param.name === 'Wsymb2').values[0]
   return wsymb2
 }
 

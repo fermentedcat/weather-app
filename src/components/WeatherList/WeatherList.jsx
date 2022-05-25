@@ -16,7 +16,7 @@ export const WeatherList = ({ weatherData }) => {
   }
 
   return (
-    <div>
+    <ul>
       {days && Object.values(days).map((day) => {
         const firstItemIsPM = checkIsPM(day[0].validTime)
         return (day.map((time, index) => {
@@ -36,6 +36,6 @@ export const WeatherList = ({ weatherData }) => {
           )
         }))
       })}
-    </div>
+    </ul>
   )
 }

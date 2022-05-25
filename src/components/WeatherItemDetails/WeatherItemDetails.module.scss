@@ -1,0 +1,53 @@
+@import '../../global.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  p {
+    margin: 0;
+    font-size: .9em;
+  }
+
+  .timeStamp {
+    padding-left: .25em;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 3.5em;
+  }
+  
+
+  &.main {
+    p {
+      font-weight: bold;
+    }
+    
+    .timeStamp {
+      font-size: 1.1em;
+    }
+    
+    .icon {
+      font-size: 2.5em;
+    }
+  }
+  
+  &.sub {
+    
+    p {
+      font-weight: normal;
+    }
+    
+    .timeStamp {
+      font-size: 1em;
+    }
+    .icon {
+      font-size: 2em;
+    }
+  }
+}
