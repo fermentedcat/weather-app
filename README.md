@@ -12,6 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - `npm run start` - Starts in development mode
 - `npm run build` - Creates a build version
+- `npm run deploy` - Deploys to github pages ( first add "homepage": "https://fermentedcat.github.io/weather-by-numbers/" to package.json )
 
 ## Deployment
 
